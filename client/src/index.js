@@ -47,7 +47,7 @@ root.render(
           <Route path='/getting-started/role' element={<Addrole />} />
           <Route path='/providerhome' element={<Providerhome hide={{display: 'none'}}/>} />
           <Route path='/learn' element={<Learn />} />
-          <Route path='/profile' element={<Profile />} />
+          <Route path='/:userId' element={<Profile />} />
        </Routes>
     </BrowserRouter>
   </React.StrictMode>
