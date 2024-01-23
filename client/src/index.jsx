@@ -10,7 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 // Pages 
-import App from './App';
+import App from './App'; 
 import Login from "./pages/login"
 import Search from "./pages/search"
 import Join from "./pages/join"
@@ -47,7 +47,7 @@ root.render(
           <Route path='/getting-started/role' element={<Addrole />} />
           <Route path='/providerhome' element={<Providerhome hide={{display: 'none'}}/>} />
           <Route path='/learn' element={<Learn />} />
-          <Route path='/:userId' element={<Profile />} />
+          <Route path='/search/:userId' element={<Profile />} />
        </Routes>
     </BrowserRouter>
   </React.StrictMode>

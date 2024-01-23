@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 function Profile() {
   const params = useParams();
-  const userId = params.userId;
+    const userId = params.userId;
   return (
     <div className="profile">
       <Navbar hide1={{ display: "none" }} />
@@ -20,7 +20,6 @@ function Profile() {
                   <MdLocationPin className="profile--location-icon" />
                   Chennai
                 </p>
-
                 <p className="profile--ratings">⭐⭐⭐⭐ 4 | 100+ clients</p>
                 <p className="profile--experience">14 years of Experience</p>
               </div>

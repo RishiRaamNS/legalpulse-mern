@@ -42,13 +42,16 @@ function Search() {
         <div className="search--right-side">
           <input className="search--search-bar"></input>
           <FiSearch className="search--search-icon" />
-          <Link to="/profile" className="blah-blah">
-            {items.map((item) => (
-              <>
-                <Searchprofile name={item.name} summary={item.about} location={item.location} rating={item.rating} />
-              </>
-            ))}
-          </Link>
+          {items.map((item) => (
+            <Link to={item.username} className="blah-blah">
+              <Searchprofile
+                name={item.name}
+                summary={item.about}
+                location={item.location}
+                rating={item.rating}
+              />
+            </Link>
+          ))}
         </div>
       </div>
     </div>
