@@ -55,7 +55,7 @@ function Learn() {
         IPC 104- When such right extends to causing any harm other than death.
         </button>
       </h2>
-      <div id="flush-collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+      <div id="flush-collapseFive" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
         <div class="accordion-body"><h4>Description of IPC Section 104:</h4><p>According to section 104 of Indian penal code, If the offence, the committing of which, or the attempting to commit which occasions the exercise of the right of private defence, be theft, mischief, or criminal trespass, not of any of the descriptions enumerated in the last preceding section, that right does not extend to the voluntary causing of death, but does extend, subject to the restrictions mentioned in section 99, to the voluntary causing to the wrong-doer of any harm other than death.</p><h4>IPC 104 in Simple Words:</h4><p>In simple words, Section 104 of the Indian Penal Code states that if the offense (like theft, mischief, or criminal trespass) does not fall under specific categories mentioned earlier, the right of private defense does not allow causing death, but it permits causing harm other than death to the wrongdoer, within certain restrictions.</p></div>
       </div>
     </div>

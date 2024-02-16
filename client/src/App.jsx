@@ -90,16 +90,16 @@ export default function App({hide1}) {
               
         </div>
       </form>
-      <div id="myDropdown" class="dropdown">
+      <div id="myDropdown" className="dropdown">
         <button
-          class="btn btn-primary dropdown-toggle"
+          className="btn btn-primary dropdown-toggle"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
           Select City
         </button>
-        <ul class="dropdown-menu">
+        <ul className="dropdown-menu">
           <li>
             <input
               type="text"
@@ -107,50 +107,50 @@ export default function App({hide1}) {
               id="input"
               // onChange={handleChange}
             />
-            <a class="dropdown-item" href="#">
+            <a className="dropdown-item" href="#">
               Action
             </a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">
+            <a className="dropdown-item" href="#">
               Another action
             </a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">
+            <a className="dropdown-item" href="#">
               Something else here
             </a>
           </li>
         </ul>
       </div>
-      <div id="myDropdown" class="dropdown">
+      <div id="myDropdown" className="dropdown">
         <button
-          class="btn btn-white dropdown-toggle"
+          className="btn btn-white dropdown-toggle"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
           Select Area
         </button>
-        <ul class="dropdown-menu">
+        <ul className="dropdown-menu">
           <li>
             <input
               type="text"
               placeholder="Search.."
-              id="input"
+              id="lolinput"
               // onChange={handleChange}
             />
-            <a class="dropdown-item" href="#">
+            <a className="dropdown-item" href="#">
               Action
             </a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">
+            <a className="dropdown-item" href="#">
               Another action
             </a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">
+            <a className="dropdown-item" href="#">
               Something else here
             </a>
           </li>
