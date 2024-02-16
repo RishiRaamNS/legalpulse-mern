@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 body {
   margin: 0;
   font-family: 'Inter';
@@ -1079,7 +1081,7 @@ border-color: #007bff; /* Change border color on hover */
   font-size: 24px;
   font-weight: 500;
   height: 154px;
-  weight: 416px;
+  width: 416px;
   display: block;
   box-sizing: border-box;
   margin-right: 40%;
