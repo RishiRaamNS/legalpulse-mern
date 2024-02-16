@@ -50,8 +50,8 @@ export default function App({hide1}) {
     setIndex(0);
   };
   return (
-    <main className="main-container bg-slate-950">
-    <div className="top-section text-blue-900">
+    <main className="main-container">
+    <div className="top-section">
       <Navbar hide1={hide1}/>
     </div>
     <div className="section-1 section">
