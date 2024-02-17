@@ -26,7 +26,7 @@ import Addrole from "./pages/addrole"
 import Providerhome from './pages/providerhome';
 import Learn from './pages/learn';
 import Profile from './pages/profile';
-
+import ClientHome from './pages/clienthome'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -46,6 +46,7 @@ root.render(
           <Route path='/message' element={<Message />} />
           <Route path='/getting-started/role' element={<Addrole />} />
           <Route path='/providerhome' element={<Providerhome hide={{display: 'none'}}/>} />
+          <Route path='/clienthome' element={<ClientHome/>}/>
           <Route path='/learn' element={<Learn />} />
           <Route path='/search/:userId' element={<Profile />} />
        </Routes>

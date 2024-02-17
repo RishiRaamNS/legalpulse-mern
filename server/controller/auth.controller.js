@@ -11,7 +11,7 @@ export const clientsignup = async (req, res, next) => {
 
   const hashedPassword =bcryptjs.hashSync(password, 10);
 
-  const newClient = new Client({ email, password: hashedPassword });
+  const newClient = new Client({ email, password: hashedPassword,typeofuser:"Client" });
 
   try {
     await newClient.save();
@@ -28,7 +28,7 @@ export const freelancesignup = async (req, res, next) => {
 
   const hashedPassword =bcryptjs.hashSync(password,10);
 
-  const newFreeSh = new FreeSh({ name,email, password: hashedPassword ,state});
+  const newFreeSh = new FreeSh({ name,email, password: hashedPassword ,state,typeofuser:"Provider"});
 
   try {
     await newFreeSh.save();

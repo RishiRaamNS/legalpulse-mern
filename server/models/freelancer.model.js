@@ -19,7 +19,9 @@ const freelancerSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    
+    typeofuser:{
+      type:String,
+    }
   },
   { timestamps: true }
 );

@@ -37,7 +37,18 @@ export default function Login() {
          return;
        }
        setError(false);
-       navigate("/");
+       if(data.typeofuser==="Client"){
+        console.log("alpha boom")
+        navigate("/clienthome");
+       }
+       else if(data.typeofuser==="Provider")
+       {
+        console.log("beta boom")
+        navigate("/providerhome");
+       }
+       else{
+        console.log("omega boom")
+       }
      } catch (error) {
        setLoading(false);
        setError(true);
