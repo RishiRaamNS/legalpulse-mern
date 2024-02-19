@@ -60,7 +60,7 @@ export const gensignin= async (req,res,next)=>{
       .status(200)
       .json(restofitems);
 
-    console.log("the user is a client")
+    
   } 
   
   else if (typeofuser === "Provider") {
@@ -80,7 +80,7 @@ export const gensignin= async (req,res,next)=>{
       .cookie("access_token", token, { httpOnly: true, expires: expirydate })
       .status(200)
       .json(restofitems);
-      console.log("the user is a freelancer")
+     
   } else {
     return next(errorHandler(401, "User not found"));
   }

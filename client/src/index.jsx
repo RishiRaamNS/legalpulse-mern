@@ -26,19 +26,21 @@ import Addrole from "./pages/addrole"
 import Providerhome from './pages/providerhome';
 import Learn from './pages/learn';
 import Profile from './pages/profile';
+import Admin from "./pages/admin"
 import ClientHome from './pages/clienthome'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-    <Routes>
+      <Routes>
+        <Route path='/admin' element={<Admin />} />
           <Route path="/signup-provider" element={<Freelancersignup />} />
           <Route path='/signup-client' element={<Clientsignup />} />
           <Route path="/" element={<App hide1={{display: 'none'}}/>} />
           <Route path="/home" element={<Home hide={{display: 'none'}}/>} />
           <Route path='/login' element={<Login />} />
           <Route path='/search' element={<Search />} />
-          <Route path='/getting-started/join' element={<Join />} />
+          <Route path='/signup' element={<Join />} />
           <Route path='/getting-started/education' element={<Education />} />
           <Route path='/getting-started/experience' element={<Experience />} />
           <Route path="/getting-started/bio" element={<Addbio />} />

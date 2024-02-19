@@ -2,21 +2,21 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Searchprofile from "../components/searchprofile";
 import { FiSearch } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
 function Search() {
   const [items, setItems] = useState([]);
-
+  const location = useLocation();
+  const data = location.state;
+  console.log(data);
+  
   useEffect(() => {
-    axios
-      .get("http://localhost:3001/lawyers")
-      .then((response) => setItems(response.data))
-      .catch((error) => console.error(error));
+    setItems(data);
   }, []);
   return (
-    <div className="searchlisting">
+    <div className="searchlisting" key="je">
       <Navbar hide1={{ display: "none" }} />
       <div className="search--grid-container">
         <div className="search--left-side">
@@ -39,16 +39,15 @@ function Search() {
           <input type="checkbox" className="filter--option"></input>
           <label>Family Lawyer</label>
         </div>
-        <div className="search--right-side">
-          <input className="search--search-bar"></input>
-          <FiSearch className="search--search-icon" />
+        <div className="search--right-side" key="eo">
           {items.map((item) => (
-            <Link to={item.username} className="blah-blah">
+            <Link to={item.username} state={item} className="blah-blah">
               <Searchprofile
                 name={item.name}
                 summary={item.about}
                 location={item.location}
                 rating={item.rating}
+                profession={item.profession}
               />
             </Link>
           ))}

@@ -49,6 +49,9 @@ code {
   height: 27rem;
 }
 
+.admin {
+  padding: 50px;
+}
 .slogan {
   margin: 60px 30px 15px 30px;
   font-size: 48px;
@@ -70,7 +73,7 @@ code {
 }
 
 .top-section {
-  padding: 30px 30px;
+  padding: 0 30px;
 }
 
 .section-2 {
@@ -99,6 +102,9 @@ code {
   height: 30px;
 }
 
+.admin--form-group {
+  padding: 100px 400px;
+}
 .search-wrapper {
   width: 30%;
   margin-left: auto;

@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import express from "express";
 import dotenv from "dotenv";
 
-import authRoutes from './routes/auth.route.js'
+import authRoutes from "./routes/auth.route.js";
 dotenv.config();
 const app = express();
 
@@ -25,8 +25,6 @@ mongoose
     console.log(err);
   });
 
-
-
 import Lawyer from "./models/lawyer.model.js";
 import Client from "./models/client.model.js";
 import FreeSh from "./models/freelancer.model.js";
@@ -35,15 +33,9 @@ Lawyer();
 Client();
 FreeSh();
 
-
 app.listen(3005, () => {
   console.log("Server listening on Port 3000");
 });
-
-
-
-
-
 
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
@@ -55,3 +47,24 @@ app.use((err, req, res, next) => {
   });
 });
 
+app.post("/lawyers/find", async (req, res) => {
+  try {
+    const searchvalue = await Lawyer.find()
+      .or([
+        {
+          location: { $regex: req.body.value, $options: "i" },
+        },
+        {
+          profession: { $regex: req.body.value, $options: "i" },
+        },
+        {
+          name: { $regex: req.body.value, $options: "i" },
+        },
+      ])
+      .limit(10);
+    res.json(searchvalue);
+  } catch (e) {
+    console.log(e);
+    res.status(500).send("Server Error");
+  }
+});
