@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-
+import {store} from './redux/store.js'
+import {Provider} from 'react-redux'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import $ from 'jquery'; 
@@ -30,7 +31,7 @@ import Admin from "./pages/admin"
 import ClientHome from './pages/clienthome'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <BrowserRouter>
       <Routes>
         <Route path='/admin' element={<Admin />} />
@@ -53,5 +54,5 @@ root.render(
           <Route path='/search/:userId' element={<Profile />} />
        </Routes>
     </BrowserRouter>
-  </React.StrictMode>
+  </Provider>
 );

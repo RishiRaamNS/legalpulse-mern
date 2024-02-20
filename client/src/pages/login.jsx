@@ -1,14 +1,15 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { signInStart,signInFailure,signInSuccess } from "../redux/user/userSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export default function Login() {
   const [formData, setFormData] = useState({});
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const{loading,error}=useSelector((state)=>state.user);
   const navigate = useNavigate();
+  const dispatch=useDispatch();
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
@@ -17,6 +18,7 @@ export default function Login() {
     e.preventDefault();
 
     try {
+      dispatch(signInStart());
       const res = await fetch("http://localhost:3005/server/auth/gen-signin", {
         method: "POST",
         headers: {
@@ -25,13 +27,14 @@ export default function Login() {
         body: JSON.stringify(formData),
       });
       const data = await res.json();
-
-      setLoading(false);
+      
+     
       if (data.success === false) {
-        setError(true);
+        console.log("this is small error")//this is what happens when user is not found
+        dispatch(signInFailure());
         return;
       }
-      setError(false);
+      dispatch(signInSuccess(data));
       if (data.typeofuser === "Client") {
         navigate("/clienthome");
       } else if (data.typeofuser === "Provider") {
@@ -39,8 +42,8 @@ export default function Login() {
       } else {
       }
     } catch (error) {
-      setLoading(false);
-      setError(true);
+      console.log("this is totoal error")// this is more serious 
+      dispatch(signInFailure(error))
     }
   };
 
