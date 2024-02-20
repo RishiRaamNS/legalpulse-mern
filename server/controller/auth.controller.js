@@ -15,7 +15,9 @@ export const clientsignup = async (req, res, next) => {
 
   try {
     await newClient.save();
-    res.status(201).json({ message: "Client created successfully"});
+    const dataClient = await Client.findOne({ email: email });
+    const { password: hashedPassword, ...restofitems } = dataClient._doc;
+    res.status(201).json(restofitems);
   } catch (error) {
     next(error);
   }
@@ -32,7 +34,9 @@ export const freelancesignup = async (req, res, next) => {
 
   try {
     await newFreeSh.save();
-    res.status(201).json({ message: "FreeLancer created successfully" });
+    const dataFreeSh = await FreeSh.findOne({ email: email });
+    const { password: hashedPassword, ...restofitems } = dataFreeSh._doc;
+    res.status(201).json(restofitems);
   } catch (error) {
     next(error);
   }

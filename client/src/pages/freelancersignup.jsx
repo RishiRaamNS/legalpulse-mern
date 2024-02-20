@@ -1,6 +1,13 @@
 import { useState } from "react";
 import React from "react";
+import {
+  signUpStart,
+  signUpFailure,
+  signUpSuccess,
+} from "../redux/user/userSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function DropDown(){
  return (<div className="dropdown">
               <a
@@ -37,8 +44,8 @@ function DropDown(){
 
 export default function Freelancersignup() {
    const [formData, setFormData] = useState({});
-   const [error, setError] = useState(null);
-   const [loading, setLoading] = useState(false);
+   const navigate=useNavigate();
+   const dispatch= useDispatch();
 
    const handleChange = (e) => {
      console.log(formData);
@@ -51,6 +58,7 @@ export default function Freelancersignup() {
      e.preventDefault();
      console.log("boom");
      try {
+      dispatch(signUpStart());
        console.log("boom");
        const res = await fetch(
          "http://localhost:3005/server/auth/freelance-signup",
@@ -64,15 +72,14 @@ export default function Freelancersignup() {
        );
        const data = await res.json();
        console.log(data);
-       setLoading(false);
+       
        if (data.success === false) {
-         setError(true);
+         dispatch(signUpFailure());
          return;
        }
-       setError(false);
+       dispatch(signUpSuccess(data));
      } catch (error) {
-       setLoading(false);
-       setError(true);
+       dispatch(signUpFailure(error));
      }
    };
 
