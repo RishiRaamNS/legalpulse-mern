@@ -1,11 +1,12 @@
 import mongoose from "mongoose";
 import express from "express";
 import dotenv from "dotenv";
-
 import authRoutes from "./routes/auth.route.js";
+import cors from "cors";
 dotenv.config();
 const app = express();
 
+app.use(cors());
 var allowCrossDomain = function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
@@ -66,5 +67,14 @@ app.post("/lawyers/find", async (req, res) => {
   } catch (e) {
     console.log(e);
     res.status(500).send("Server Error");
+  }
+});
+
+app.post("/lawyers/add", async (req, res) => {
+  try {
+    console.log(req.body);
+    await Lawyer.create(req.body);
+  } catch (e) {
+    console.log(e);
   }
 });
