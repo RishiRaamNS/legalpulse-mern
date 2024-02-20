@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-
+import {persistor, store} from './redux/store.js'
+import {Provider} from 'react-redux'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import $ from 'jquery'; 
@@ -28,13 +29,16 @@ import Learn from './pages/learn';
 import Profile from './pages/profile';
 import Admin from "./pages/admin"
 import ClientHome from './pages/clienthome'
+import { PersistGate } from 'redux-persist/integration/react';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path='/admin' element={<Admin />} />
+  <Provider store={store}>
+    <PersistGate persistor={persistor} loading={null}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/admin" element={<Admin />} />
           <Route path="/signup-provider" element={<Freelancersignup />} />
+<<<<<<< HEAD
           <Route path='/signup-client' element={<Clientsignup />} />
           <Route path="/" element={<App hide1={{display: 'none'}}/>} />
           <Route path="/home" element={<Home hide={{display: 'none'}}/>} />
@@ -43,15 +47,29 @@ root.render(
           <Route path='/join' element={<Join />} />
           <Route path='/getting-started/education' element={<Education />} />
           <Route path='/getting-started/experience' element={<Experience />} />
+=======
+          <Route path="/signup-client" element={<Clientsignup />} />
+          <Route path="/" element={<App hide1={{ display: "none" }} />} />
+          <Route path="/home" element={<Home hide={{ display: "none" }} />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/signup" element={<Join />} />
+          <Route path="/getting-started/education" element={<Education />} />
+          <Route path="/getting-started/experience" element={<Experience />} />
+>>>>>>> 587b1f4055b860d18312e4cce66a555a7fac791d
           <Route path="/getting-started/bio" element={<Addbio />} />
-          <Route path='/getting-started/certification' element={<Addcert />} />
-          <Route path='/message' element={<Message />} />
-          <Route path='/getting-started/role' element={<Addrole />} />
-          <Route path='/providerhome' element={<Providerhome hide={{display: 'none'}}/>} />
-          <Route path='/clienthome' element={<ClientHome/>}/>
-          <Route path='/learn' element={<Learn />} />
-          <Route path='/search/:userId' element={<Profile />} />
-       </Routes>
-    </BrowserRouter>
-  </React.StrictMode>
+          <Route path="/getting-started/certification" element={<Addcert />} />
+          <Route path="/message" element={<Message />} />
+          <Route path="/getting-started/role" element={<Addrole />} />
+          <Route
+            path="/providerhome"
+            element={<Providerhome hide={{ display: "none" }} />}
+          />
+          <Route path="/clienthome" element={<ClientHome />} />
+          <Route path="/learn" element={<Learn />} />
+          <Route path="/search/:userId" element={<Profile />} />
+        </Routes>
+      </BrowserRouter>
+    </PersistGate>
+  </Provider>
 );
