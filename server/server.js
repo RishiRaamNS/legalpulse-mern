@@ -3,9 +3,19 @@ import express from "express";
 import dotenv from "dotenv";
 import authRoutes from "./routes/auth.route.js";
 import cors from "cors";
+import multer from "multer";
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/certificates/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
 dotenv.config();
 const app = express();
 
+const upload = multer({ storage: storage });
 app.use(cors());
 var allowCrossDomain = function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -77,4 +87,8 @@ app.post("/lawyers/add", async (req, res) => {
   } catch (e) {
     console.log(e);
   }
+});
+
+app.post("/api/upload", upload.single("cert"), (req, res) => {
+  res.json("success");
 });

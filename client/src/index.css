@@ -1670,3 +1670,24 @@ gap: 60px;
   text-decoration: none;
   color: initial;
 }
+
+.file-input {
+ padding: 20px;
+}
+
+.file-input-wrapper::before {
+   content: 'Upload';
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    height: 60px;
+    color: #fff;
+    font-weight: 700;
+    z-index: 25;
+    font-size: 16px;
+    padding: 0 15px;
+    text-transform: uppercase;
+    pointer-events: none;
+    border-radius: 0 5px 5px 0;
+}

@@ -125,7 +125,7 @@ export default function Freelancersignup() {
                 <option value="TamilNadu">TamilNadu</option>
               </select>
 
-              <button className="flsbutton">SignUP</button>
+              <Link to="/basic-details" className="flsbutton">SignUP</Link>
 
               {/* <Link
               to="/getting-started/role"

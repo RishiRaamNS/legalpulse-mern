@@ -40,7 +40,7 @@ root.render(
           <Route path="/home" element={<Home hide={{display: 'none'}}/>} />
           <Route path='/login' element={<Login />} />
           <Route path='/search' element={<Search />} />
-          <Route path='/signup' element={<Join />} />
+          <Route path='/join' element={<Join />} />
           <Route path='/getting-started/education' element={<Education />} />
           <Route path='/getting-started/experience' element={<Experience />} />
           <Route path="/getting-started/bio" element={<Addbio />} />
