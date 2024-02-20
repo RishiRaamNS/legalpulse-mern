@@ -6,7 +6,7 @@ import { FaPenToSquare } from "react-icons/fa6";
 import { FiSearch } from "react-icons/fi";
 import { FaShieldHalved } from "react-icons/fa6";
 import { LiaUserClockSolid } from "react-icons/lia";
-
+//hello from nito
 import Lawyerinfo from "./components/Lawyerinfo";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
