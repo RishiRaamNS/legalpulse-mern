@@ -38,7 +38,6 @@ root.render(
         <Routes>
           <Route path="/admin" element={<Admin />} />
           <Route path="/signup-provider" element={<Freelancersignup />} />
-<<<<<<< HEAD
           <Route path='/signup-client' element={<Clientsignup />} />
           <Route path="/" element={<App hide1={{display: 'none'}}/>} />
           <Route path="/home" element={<Home hide={{display: 'none'}}/>} />
@@ -47,7 +46,6 @@ root.render(
           <Route path='/join' element={<Join />} />
           <Route path='/getting-started/education' element={<Education />} />
           <Route path='/getting-started/experience' element={<Experience />} />
-=======
           <Route path="/signup-client" element={<Clientsignup />} />
           <Route path="/" element={<App hide1={{ display: "none" }} />} />
           <Route path="/home" element={<Home hide={{ display: "none" }} />} />
@@ -56,7 +54,6 @@ root.render(
           <Route path="/signup" element={<Join />} />
           <Route path="/getting-started/education" element={<Education />} />
           <Route path="/getting-started/experience" element={<Experience />} />
->>>>>>> 587b1f4055b860d18312e4cce66a555a7fac791d
           <Route path="/getting-started/bio" element={<Addbio />} />
           <Route path="/getting-started/certification" element={<Addcert />} />
           <Route path="/message" element={<Message />} />
