@@ -21,7 +21,6 @@ export default function admin() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData(document.querySelector("#my-form"));
     axios.post("http://localhost:3005/lawyers/add", lawyer);
   };
   const onChangeHandler = (event) => {

@@ -25,7 +25,7 @@ export default function Navbar({hide, hide1, show}) {
             Login
           </Link>
           <Link
-            to="/signup"
+            to="/join"
             className="btn btn-primary"
             style={hide}
           >

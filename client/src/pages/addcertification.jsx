@@ -1,8 +1,15 @@
 import Getstartbottomnav from "../components/Getstartbottomnav";
 import Getstartnavbar from "../components/Getstartnavbar";
 import { AiFillPlusCircle } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 export default function Addcert() {
+  const navigate = useNavigate();
+  const handleSubmit = () => {
+    setTimeout(() => {
+      navigate("/login")
+    }, 1000);
+  };
   return (
     <div className="Addcert">
       <Getstartnavbar />
@@ -15,20 +22,19 @@ export default function Addcert() {
       </div>
       <div>
         <div className="add-experience">
-          {/* <div className='inside-Box1'> 
-      <div className='inside-Box'>
-      <AiFillPlusCircle className="icon" />
-       <p>Add Certification</p>
-      </div>
-      </div> */}
           <form
             action="http://localhost:3005/api/upload"
             method="post"
             encType="multipart/form-data"
+            onSubmit={handleSubmit}
           >
             <div className="file-input-wrapper">
               <input type="file" name="cert" className="file-input" />
-              <input type="submit" value="submit" className="file-input-submit"/>
+              <input
+                type="submit"
+                value="submit"
+                className="file-input-submit"
+              />
             </div>
           </form>
         </div>
@@ -40,10 +46,6 @@ export default function Addcert() {
           </label>
         </div>
       </div>
-      <Link to="/home">
-        <Getstartbottomnav botButton="Complete my profile" />
-      </Link>
     </div>
   );
 }
-

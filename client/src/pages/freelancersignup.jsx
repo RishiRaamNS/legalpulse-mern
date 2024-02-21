@@ -78,6 +78,7 @@ export default function Freelancersignup() {
          return;
        }
        dispatch(signUpSuccess(data));
+       navigate("/basic-details")
      } catch (error) {
        dispatch(signUpFailure(error));
      }
@@ -120,11 +121,12 @@ export default function Freelancersignup() {
               <span className="floating-label floating-label-3">Password</span>
               {/* <DropDown /> */}
 
-              <label htmlFor="state">State of Operation</label>
+              <p>State of Operation</p>
 
               <select
                 name="State-of-operation"
                 id="state"
+                className="selectstate"
                 onChange={handleChange}
               >
                 <option value="Nil">All States</option>
@@ -132,7 +134,7 @@ export default function Freelancersignup() {
                 <option value="TamilNadu">TamilNadu</option>
               </select>
 
-              <Link to="/basic-details" className="flsbutton">SignUP</Link>
+              <button type="submit" className="signupbtnnn btn btn-primary">Sign Up</button>
 
               {/* <Link
               to="/getting-started/role"

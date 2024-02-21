@@ -89,6 +89,10 @@ app.post("/lawyers/add", async (req, res) => {
   }
 });
 
-app.post("/api/upload", upload.single("cert"), (req, res) => {
-  res.json("success");
+app.post("/api/upload", upload.single("cert"), async (req, res) => {
+  try {
+    console.log("success");
+  } catch (e) {
+    console.log(e);
+  }
 });

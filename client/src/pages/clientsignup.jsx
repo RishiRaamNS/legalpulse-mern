@@ -65,12 +65,21 @@ export default function Clientsignup() {
 
             <p className="para">Enter your details to get started</p>
             <form onSubmit={handleSubmit}>
-              <input type="email"  id="email"  className="input first-input"  onChange={handleChange} />
+              <input
+                type="email"
+                id="email"
+                className="input first-input"
+                onChange={handleChange}
+              />
               <span className="floating-label floating-label-1">Email</span>
-              <input type="password"  id="password"   className="input second-input" onChange={handleChange}/>
+              <input
+                type="password"
+                id="password"
+                className="input second-input"
+                onChange={handleChange}
+              />
               <span className="floating-label floating-label-2">Password</span>
-              <p className="left-align">Have trouble sigining in?</p>
-              <button>bla</button>
+              <button className="signupbtnnn btn btn-primary ">Sign up</button>
             </form>
 
             <p className="container--footer-text">

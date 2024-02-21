@@ -1,15 +1,19 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { signInStart,signInFailure,signInSuccess } from "../redux/user/userSlice";
+import {
+  signInStart,
+  signInFailure,
+  signInSuccess,
+} from "../redux/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export default function Login() {
   const [formData, setFormData] = useState({});
-  const{loading,error}=useSelector((state)=>state.user);
+  const { loading, error } = useSelector((state) => state.user);
   const navigate = useNavigate();
-  const dispatch=useDispatch();
+  const dispatch = useDispatch();
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
@@ -27,10 +31,9 @@ export default function Login() {
         body: JSON.stringify(formData),
       });
       const data = await res.json();
-      
-     
+
       if (data.success === false) {
-        console.log("this is small error")//this is what happens when user is not found
+        console.log("this is small error"); //this is what happens when user is not found
         dispatch(signInFailure());
         return;
       }
@@ -42,8 +45,8 @@ export default function Login() {
       } else {
       }
     } catch (error) {
-      console.log("this is totoal error")// this is more serious 
-      dispatch(signInFailure(error))
+      console.log("this is totoal error"); // this is more serious
+      dispatch(signInFailure(error));
     }
   };
 
@@ -73,6 +76,7 @@ export default function Login() {
               ></input>
               <span className="floating-label floating-label-2">Password</span>
               <select
+                className="container--select"
                 name="user-selection"
                 id="typeofuser"
                 onChange={handleChange}
@@ -82,11 +86,12 @@ export default function Login() {
                 <option value="Client">Client</option>
                 <option value="Provider">Provider</option>
               </select>
-              <p className="left-align">Have trouble sigining in?</p>
-              <button>signin</button>
-              {/* <Link to="/home" className="btn btn-primary container--btn">
-                  <button>Log In</button>
-                </Link> */}
+
+              <button
+                className="container--signinbtn btn btn-primary"
+              >
+                Sign in
+              </button>
             </form>
 
             {/* <div className="btn-wrapper">
@@ -95,7 +100,7 @@ export default function Login() {
           </div> */}
             <p className="container--footer-text">
               Don't have an account?
-              <a className="container--footer-link">Signup</a>
+              <Link to="/join" className="container--footer-link">Signup</Link>
             </p>
           </div>
         </div>
