@@ -121,7 +121,6 @@ export default function Freelancersignup() {
               <span className="floating-label floating-label-3">Password</span>
               {/* <DropDown /> */}
 
-              <p>State of Operation</p>
 
               <select
                 name="State-of-operation"

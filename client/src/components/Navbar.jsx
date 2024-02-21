@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {BiUserCircle} from "react-icons/bi"
-export default function Navbar({hide, hide1, show}) {
+export default function Navbar({hide, hide1, show, userid}) {
   return (
     <nav className="navbar">
       <div className="container-fluid">
@@ -24,14 +24,28 @@ export default function Navbar({hide, hide1, show}) {
           <Link to="/login" className="nav-link" style={hide}>
             Login
           </Link>
-          <Link
-            to="/join"
-            className="btn btn-primary"
-            style={hide}
-          >
+          <Link to="/join" className="btn btn-primary" style={hide}>
             Sign up
           </Link>
-          <BiUserCircle className="nav-link nav-icon" style={hide1} />
+
+          <button
+            type="button"
+            class="btn btn-primary dropdown-toggle"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Action
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">
+              {userid}
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              Sign out
+            </a>
+          </div>
         </div>
       </div>
     </nav>

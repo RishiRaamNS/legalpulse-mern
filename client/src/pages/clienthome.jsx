@@ -3,9 +3,11 @@ import Navbar from "../components/Navbar";
 import { FiSearch } from "react-icons/fi";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
 
 export default function Home({ hide }) {
   const navigate = useNavigate();
+  const { currentUser } = useSelector(state => state.user);
   const [value, setValue] = useState("");
   function searching(e) {
     e.preventDefault();
@@ -17,11 +19,12 @@ export default function Home({ hide }) {
   }
   return (
     <div className="home">
-      <Navbar hide={hide} show={{ display: "inline" }} />
+      <Navbar hide={{display: "none"}} show={{ display: "inline" }}  userid={currentUser.email}/>
       <div className="home-flex">
         <div className="home-left">
           <h1 className="home-heading">
             Welcome! Let's hire your first Legal Service Provider
+            {currentUser._id}
           </h1>
           <p className="home-paragraph">
             It's the fastest way to access quality legal help in India
