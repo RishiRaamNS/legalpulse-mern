@@ -52,7 +52,7 @@ export default function App({ hide1 }) {
   return (
     <main className="main-container">
       <div className="top-section">
-        <Navbar hide1={hide1} />
+        <Navbar hide1={hide1} hide2={{display: "none"}} />
       </div>
       <div className="section-1 section">
         <div className="left-container">

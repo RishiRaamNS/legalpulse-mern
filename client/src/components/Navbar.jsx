@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {BiUserCircle} from "react-icons/bi"
-export default function Navbar({hide, hide1, show, userid}) {
+export default function Navbar({hide, hide1, show, userid, hide2}) {
   return (
     <nav className="navbar">
       <div className="container-fluid">
@@ -34,6 +34,7 @@ export default function Navbar({hide, hide1, show, userid}) {
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
+            style={hide2}
           >
             Action
           </button>
