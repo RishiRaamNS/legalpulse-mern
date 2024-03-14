@@ -7,8 +7,8 @@ export default function Navbar({hide, hide1, show, userid, hide2}) {
       <div className="container-fluid">
         <Link to="/" className="navbar-brand navbar-legal">
           <img
-            width="96"
-            height="96"
+            width="48"
+            height="48"
             src="/legalpulse-icon.svg"
             alt="courthouse"
           />
@@ -30,13 +30,13 @@ export default function Navbar({hide, hide1, show, userid, hide2}) {
 
           <button
             type="button"
-            class="btn btn-primary dropdown-toggle"
+            class="btn btn-light dropdown-toggle"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
             style={hide2}
           >
-            Action
+            <BiUserCircle size={25}/>
           </button>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#">
