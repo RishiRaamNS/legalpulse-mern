@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
 
 export default function basicdetails() {
+  const { currentUser } = useSelector((state) => state.user);
   const [lawyer, setLawyer] = useState({
     name: String,
     username: String,
@@ -24,6 +26,7 @@ export default function basicdetails() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(document.querySelector("#my-form"));
+    
     axios.post("http://localhost:3005/lawyers/add", lawyer);
     navigate("/getting-started/certification");
   };

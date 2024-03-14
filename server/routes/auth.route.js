@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { clientsignup, gensignin } from '../controller/auth.controller.js';
+import { clientsignup, gensignin,signout} from '../controller/auth.controller.js';
 import { freelancesignup } from '../controller/auth.controller.js';
 
 
@@ -10,6 +10,8 @@ router.post("/client-signup",clientsignup)
 router.post("/freelance-signup",freelancesignup)
 
 router.post("/gen-signin",gensignin)
+
+router.get('/signout',signout)
 
 
 

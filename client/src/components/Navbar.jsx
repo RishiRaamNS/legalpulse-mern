@@ -1,14 +1,43 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {BiUserCircle} from "react-icons/bi"
+
+
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  signOut
+} from "../redux/user/userSlice";
+import { useDispatch, } from "react-redux";
+
+
+
+
+
+
+
+
+
+
+
+
 export default function Navbar({hide, hide1, show, userid, hide2}) {
+  const dispatch = useDispatch();
+  const handleSignOut=async()=>{
+    try{    
+      await fetch("http://localhost:3005/server/auth/signout");
+      dispatch(signOut());
+    }catch(error){
+      console.log(error);
+    }
+  }
   return (
     <nav className="navbar">
       <div className="container-fluid">
         <Link to="/" className="navbar-brand navbar-legal">
           <img
-            width="48"
-            height="48"
+            width="96"
+            height="96"
             src="/legalpulse-icon.svg"
             alt="courthouse"
           />
@@ -30,20 +59,20 @@ export default function Navbar({hide, hide1, show, userid, hide2}) {
 
           <button
             type="button"
-            class="btn btn-light dropdown-toggle"
+            class="btn btn-primary dropdown-toggle"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
             style={hide2}
           >
-            <BiUserCircle size={25}/>
+            Action
           </button>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#">
               {userid}
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item" href="/" onClick={handleSignOut}>
               Sign out
             </a>
           </div>
